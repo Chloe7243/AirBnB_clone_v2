@@ -7,7 +7,7 @@ if [[ "$(nginx -v; echo $?)" != '0' ]]; then
 fi
 
 sudo mkdir -p "/data/web_static/releases/test" "/data/web_static/shared"
-echo 'Holberton' > "/data/web_static/releases/test/index.html"
+echo 'Holberton School' > "/data/web_static/releases/test/index.html"
 sudo ln -sf "/data/web_static/releases/test/" "/data/web_static/current"
 sudo chown -hR ubuntu:ubuntu "/data"
 
