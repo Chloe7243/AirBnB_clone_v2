@@ -13,4 +13,5 @@ sudo chown -hR ubuntu:ubuntu "/data"
 
 static_block="\\\n\tlocation /hbnb_static {\n\t\talias /data/web_static/current;\n\t\tindex index.html index.htm;\n\t\ttry_files \$uri \$uri/ =404;\n\t}"
 sudo sed -i "/error_page 404 /a${static_block}" "/etc/nginx/sites-available/default"
+sudo ln -sf '/etc/nginx/sites-available/default' '/etc/nginx/sites-enabled/default'
 sudo service nginx restart
