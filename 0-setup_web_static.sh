@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # sets up your web servers for the deployment of web_static
 
-if [[ "$(which nginx; echo $?)" == '1' ]]; then
+if [[ "$(nginx -v; echo $?)" != '0' ]]; then
     sudo apt-get update
     sudo apt-get -y install nginx
 fi
 
 sudo mkdir -p "/data/web_static/releases/test" "/data/web_static/shared"
-sudo echo 'Holberton School' > "/data/web_static/releases/test/index.html"
+echo 'Holberton School' > "/data/web_static/releases/test/index.html"
 sudo ln -sf "/data/web_static/releases/test/" "/data/web_static/current"
 sudo chown -hR ubuntu:ubuntu "/data"
 
