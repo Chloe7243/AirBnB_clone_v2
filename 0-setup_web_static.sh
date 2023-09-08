@@ -6,8 +6,16 @@ if [[ "$(type nginx > /dev/null; echo $?)" != '0' ]]; then
     sudo apt-get -y install nginx
 fi
 
+html='<html>
+  <head>
+  </head>
+  <body>
+    Holberton School
+  </body>
+</html>'
+
 sudo mkdir -p "/data/web_static/releases/test" "/data/web_static/shared"
-bash -c "echo Holberton School > /data/web_static/releases/test/index.html"
+bash -c "echo $html > /data/web_static/releases/test/index.html"
 sudo ln -sf "/data/web_static/releases/test/" "/data/web_static/current"
 sudo ln -sf '/etc/nginx/sites-available/default' '/etc/nginx/sites-enabled/default'
 sudo chown -hR ubuntu:ubuntu "/data"
