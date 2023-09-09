@@ -3,7 +3,7 @@
 
 sudo apt-get -y update
 sudo apt-get -y install nginx
-sudo service nginx start
+sudo systemctl start nginx
 
 sudo mkdir -p "/data/web_static/releases/test" "/data/web_static/shared"
 sudo bash -c "echo '<h1>Hello World!</h1>' > /data/web_static/releases/test/index.html"
@@ -15,4 +15,4 @@ static_block="\\\n\tlocation /hbnb_static {\n\t\talias /data/web_static/current/
 if [[ "$(grep -c 'location /hbnb_static {' '/etc/nginx/sites-available/default')" -lt '1' ]]; then
     sudo sed -i "/error_page 404 /a${static_block}" "/etc/nginx/sites-available/default"
 fi
-sudo service nginx restart
+sudo systemctl reload nginx
