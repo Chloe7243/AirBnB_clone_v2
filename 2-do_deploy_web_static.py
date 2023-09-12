@@ -5,7 +5,7 @@ from fabric.api import run, env, put
 
 env.hosts = ['54.144.128.232', '18.204.20.190']
 
-
+@runs_once
 def do_deploy(archive_path):
     """Deploys the static files to the host servers."""
 

@@ -12,11 +12,7 @@ def do_clean(number=0):
 
     archives = os.listdir('versions/')
     archives.sort(reverse=True)
-    try:
-        for archive in archives[int(number):]:
-            local(f"rm versions/{archive}")
-            run(f"rm /data/web_static/releases/{archive}")
-        success = True
-    except Exception:
-        success = False
-    return success
+    number = 1 if number == 0 else int(number)
+    for archive in archives[number:]:
+        local(f"rm versions/{archive}")
+        run(f"rm /data/web_static/releases/{archive}")

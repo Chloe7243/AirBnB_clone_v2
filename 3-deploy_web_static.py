@@ -7,6 +7,7 @@ from fabric.api import run, env, put, local, runs_once
 env.hosts = ['54.144.128.232', '18.204.20.190']
 
 
+@runs_once
 def do_pack():
     """Archives the static files."""
     if not os.path.isdir("versions"):
@@ -47,15 +48,13 @@ def do_deploy(archive_path):
         run(f"rm -rf /data/web_static/current")
         run(f"ln -s {filepath} /data/web_static/current")
         print('New version deployed!')
-        success = True
+        return True
     except Exception:
-        success = False
-    return success
+        return False
 
 
 def deploy():
     """Archives and deploys the static files to the host servers.
     """
     acp = do_pack()
-    print("acp", acp)
     return do_deploy(acp)
