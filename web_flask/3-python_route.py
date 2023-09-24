@@ -22,7 +22,7 @@ def c(text):
 
 
 @app.route('/python/<text>', strict_slashes=False)
-def python(text="python"):
+def python(text = "is cool"):
     return f"Python {escape(text).replace('_', ' ')}"
 
 
