@@ -29,7 +29,7 @@ def python(text="is cool"):
 
 @app.route('/number/<int:n>', strict_slashes=False)
 def number(n):
-    return f"C {escape(text).replace('_', ' ')}"
+    return f"{escape(n)} is a number"
 
 
 if __name__ == "__main__":
