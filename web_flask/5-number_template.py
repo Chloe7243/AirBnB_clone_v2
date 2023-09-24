@@ -3,7 +3,7 @@
 from flask import Flask, request, render_template
 from markupsafe import escape
 
-app = Flask(__name__, template_folder='../templates')
+app = Flask(__name__, template_folder='templates')
 
 
 @app.route('/', strict_slashes=False)
