@@ -25,8 +25,10 @@ def states(id=None):
             if state.id == id:
                 state = state
                 break
+            state = None
+        states = None
     return render_template('9-states.html', c=c, states=states, state=state)
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=4000)
