@@ -16,16 +16,16 @@ def teardown_db(e):
 @app.route('/states/<id>', strict_slashes=False)
 @app.route('/states/', strict_slashes=False)
 def states(id=None):
-    case = 1
+    c = 1
     states = list(storage.all(State).values())
     state = None
     if id is not None:
-        case = 2
+        c = 2
         for state in states:
             if state.id == id:
                 state = state
                 break
-    return render_template('9-states.html', case=case, states=states, state=state)
+    return render_template('9-states.html', c=c, stat=states, state=state)
 
 
 if __name__ == "__main__":
