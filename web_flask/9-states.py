@@ -25,7 +25,7 @@ def states(id=None):
             if state.id == id:
                 state = state
                 break
-    return render_template('9-states.html', c=c, stat=states, state=state)
+    return render_template('9-states.html', c=c, states=states, state=state)
 
 
 if __name__ == "__main__":
