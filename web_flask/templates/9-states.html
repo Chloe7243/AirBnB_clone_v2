@@ -4,7 +4,7 @@
         <TITLE>HBNB</TITLE>
     </HEAD>
     <BODY>
-	{% if states is not none and state is not none %}
+	{% if states is not none or state is not none %}
 	<h1>{{'States' if c == 1 else 'State: ' + state.name}}</h1>
 	{% endif %}
 	{% if c == 1 %}
