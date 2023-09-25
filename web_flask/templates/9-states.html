@@ -4,7 +4,7 @@
         <TITLE>HBNB</TITLE>
     </HEAD>
     <BODY>
-	<h1>{{ 'States' if c == 1 else 'State:' + state.name }}</h1>
+	<h1>{{'States' if c == 1 else 'State: ' + state.name}}</h1>
 	{% if c == 1 %}
 	<ul> 
 		{% for state in states|sort(attribute="name") %}
@@ -12,7 +12,7 @@
 		{% endfor %}
 	</ul>
 	{% else %}
-	<h3>Cities</h3>
+	<h3>Cities:</h3>
 	<ul>
 		{% for city in state.cities|sort(attribute="name") %}
 		<li>{{ city.id }}: <b>{{city.name}}</b></li>
